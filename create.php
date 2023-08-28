@@ -8,17 +8,23 @@
         $autor = $_POST['autor'];
         $anoPublicacao = $_POST['ano'];
         $genero = $_POST['genero'];
+        $editora = $_POST['editora'];
 
-        $sql = "insert into livros values
-        (default, '$titulo', '$autor', $anoPublicacao, '$genero')";
+        $sql = "insert into livros(id, titulo, autor, ano, genero, editora) values
+        (default, '$titulo', '$autor', $anoPublicacao, '$genero', '$editora')";
+
         $result = mysqli_query($conn, $sql);
 
+        if($result){
+            header("Location: index.php");
+            exit();
+        } else{
+            echo "Erro ao adicionar o livro.";
+            die("Erro ao gravar: " . mysqli_error($conn));
+        }
     }
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,6 +63,11 @@
                 <input class="form-control" type="number" name="ano" required><br>
             </div>
 
+            <div class="mb-3">
+                <label class="form-label" for="editora">Editora:</label>
+                <input class="form-control" type="text" name="editora" maxlength="30" required><br>
+            </div>
+
         <label class="form-label" for="genero">Gênero:</label>
             <select class="form-select" id="genero" name="genero" required>
                 <option value="">Selecione</option>
@@ -69,11 +80,6 @@
                 <option value="Outros">Outros</option>
 
             </select><br>
-
-            <div class="mb-3">
-                <label class="form-label" for="editora">Editora:</label>
-                <input class="form-control" type="text" name="editora" maxlength="40" required><br>
-            </div>
 
             <input class="btn btn-primary" type="submit" value="Adicionar Livro">
             <a class="btn btn-secondary" href="index.php">Voltar</a>

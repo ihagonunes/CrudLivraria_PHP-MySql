@@ -38,6 +38,7 @@ if (!$result) {
                 <th>Autor</th>
                 <th>Ano de Publicação</th>
                 <th>Gênero</th>
+                <th>Editora</th>
                 <th>Operações</th>
             </tr>
             <?php while ($row = mysqli_fetch_assoc($result)): ?>
@@ -47,6 +48,7 @@ if (!$result) {
                 <td><?php echo $row['autor']; ?></td>
                 <td><?php echo $row['ano']; ?></td>
                 <td><?php echo $row['genero']; ?></td>
+                <td><?php echo $row['editora']; ?></td>
                 <td>
                     <a href="read.php?id=<?php echo $row['id']; ?>"><button
                             class="btn btn-secondary">Detalhes</button></a>

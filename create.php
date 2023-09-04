@@ -48,13 +48,12 @@
     <div class="container">
         <h2>Add new book</h2>
         <form method="POST" action="">
-        <form method="POST" action="">
             <div class="mb-3">
                 <label class="form-label" for="titulo">Título:</label>
                 <input class="form-control" type="text" name="titulo" maxlength="40" required><br>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="titulo">Autor:</label>
+                <label class="form-label" for="autor">Autor:</label>
                 <input class="form-control" type="text" name="autor" maxlength="30" required><br>
             </div>
 
@@ -83,7 +82,6 @@
 
             <input class="btn btn-primary" type="submit" value="Adicionar Livro">
             <a class="btn btn-secondary" href="index.php">Voltar</a>
-        </form>
         </form>
     </div>
 
